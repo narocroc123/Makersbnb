@@ -5,7 +5,7 @@ require './database_connection_setup'
 class MakersBnB < Sinatra::Base
 
   get '/' do
-      'hello world'
+    erb :index
   end
 
   run! if app_file == $0
