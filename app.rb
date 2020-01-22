@@ -8,5 +8,13 @@ class MakersBnB < Sinatra::Base
     erb :index
   end
 
+  get '/listings/new' do
+    erb :new_listing
+  end
+
+ post '/listings/new' do
+    erb :new_listing
+  end
+
   run! if app_file == $0
 end
