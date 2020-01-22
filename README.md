@@ -1,4 +1,4 @@
-# MakersBnB
+# MakersBnB - The Saucy Supremes
 
 ## Description
 An AirBnB clone with sign-up/sign-in functionality, the ability to list properties, view all properties and book available properties.
