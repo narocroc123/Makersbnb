@@ -3,6 +3,11 @@
 ## Description
 An AirBnB clone with sign-up/sign-in functionality, the ability to list properties, view all properties and book available properties.
 
+## Set Up:
+- `bundle install`
+- `rake setup`
+- `rackup`
+
 ## User Stories
 ```
 As a user
