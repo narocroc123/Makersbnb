@@ -1,7 +1,10 @@
 <h1>Listings</h1>
+<form action='listings/new'>
+  <input type='submit' value='New Listing'>
+</form>
 
 <% @listings.each do |listing| %>
-  <br><b><%= listing.property_name %></b>
+  <br><a href="listings/<%= listing.id %>"><b><%= listing.property_name %></b></a>
   <br> Description: <%= listing.description %>
   <br> Available: <%= listing.available_date %>
   <br> Price: <%= listing.price %>

@@ -3,6 +3,7 @@ describe Listings do
     listings = Listings.all
     listing = listings.first
 
+    expect(listing.id).to eq('1')
     expect(listing.property_name).to eq('Sams Manor')
     expect(listing.description).to eq('Palace in the wopwops')
     expect(listing.available_date).to eq('2020-04-03')
