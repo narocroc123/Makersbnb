@@ -11,22 +11,22 @@ class MakersBnB < Sinatra::Base
 
   get '/listings' do
     @listings = Listings.all
-    erb :listings
+    erb :'listings/listings'
   end
 
   get '/listings/new' do
-    erb :new_listing
+    erb :'listings/new_listing'
   end
 
   get '/listings/:id' do
     @id = params[:id]
     @listing = Listings.select(id: @id)
-    erb :property_page
+    erb :'listings/property_page'
   end
 
   get '/confirmation' do
     @listing = Listings.all.first
-    erb :confirmation
+    erb :'listings/confirmation'
   end
 
   post '/listings' do
