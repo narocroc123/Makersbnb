@@ -1,9 +1,10 @@
 <h1>Listings</h1>
 
 <% @listings.each do |listing| %>
-  <%= listing.property_name %>
-  <%= listing.description %>
-  <%= listing.available_date %>
-  <%= listing.price %>
-  <%= listing.available %>
+  <br><b><%= listing.property_name %></b>
+  <br> Description: <%= listing.description %>
+  <br> Available: <%= listing.available_date %>
+  <br> Price: <%= listing.price %>
+  <br> Available: <%= listing.available %>
+  <br>
 <% end %>
