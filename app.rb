@@ -30,5 +30,9 @@ class MakersBnB < Sinatra::Base
     redirect '/listings'
   end
 
+  get '/users/new' do
+    erb :'users/user_sign_up'
+  end
+
   run! if app_file == $0
 end
