@@ -5,10 +5,6 @@ require './database_connection_setup'
 
 class MakersBnB < Sinatra::Base
 
-  get '/' do
-    erb :index
-  end
-
   get '/listings' do
     @listings = Listings.all
     erb :'listings/listings'
