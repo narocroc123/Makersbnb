@@ -5,3 +5,4 @@ gem 'pg'
 gem 'rake'
 gem "rspec"
 gem 'sinatra'
+gem 'bcrypt'
