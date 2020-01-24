@@ -7,6 +7,7 @@
 <% else %>
   <br> Available: No
 <% end %>
+<br> Listed by: <%= @user.name %>
 
 <% if @listing.available == 't' %>
   <form action="<%= @listing.id %>/confirmation" method='get'>

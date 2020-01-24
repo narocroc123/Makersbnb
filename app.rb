@@ -21,7 +21,12 @@ class MakersBnB < Sinatra::Base
   get '/listings' do
     @user = User.find(session[:user_id])
     @listings = Listings.all
-    erb :'listings/listings'
+    if @user
+      erb :'listings/listings'
+    else
+      flash[:notice] = 'You must be signed in to see the listings.'
+      redirect '/sessions/new'
+    end
   end
 
   get '/listings/new' do
@@ -30,6 +35,7 @@ class MakersBnB < Sinatra::Base
 
   get '/listings/:id' do
     @listing = Listings.select(id: params[:id])
+    @user = User.find(@listing.user_id)
     erb :'listings/property_page'
   end
 
@@ -41,7 +47,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listings' do
-    Listings.create(property_name: params[:property_name], description: params[:description], available_date: params[:available_date], price: params[:price], available: params[:available])
+    @user = User.find(session[:user_id])
+    Listings.create(user_id: @user.id, property_name: params[:property_name], description: params[:description], available_date: params[:available_date], price: params[:price], available: params[:available])
     redirect '/listings'
   end
 
@@ -55,7 +62,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.authenticate( email: params[:email], password: params[:password])
+    user = User.authenticate(email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.id
       redirect '/listings'
