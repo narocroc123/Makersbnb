@@ -1,8 +1,10 @@
 <h1>Listings</h1>
 
+<% if @user %>
 <form action='listings/new'>
   <input type='submit' value='New Listing'>
 </form>
+<% end %>
 
 <% @listings.each do |listing| %>
   <br><a href="listings/<%= listing.id %>"><b><%= listing.property_name %></b></a>
