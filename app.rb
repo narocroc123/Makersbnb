@@ -34,8 +34,10 @@ class MakersBnB < Sinatra::Base
     erb :'listings/property_page'
   end
 
-  get '/confirmation' do
-    @listing = Listings.all.first
+  get '/listings/:id/confirmation' do
+    @id = params[:id]
+    @listing = Listings.select(id: @id)
+    @available = Listings.booked(id: @id)
     erb :'listings/confirmation'
   end
 

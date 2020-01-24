@@ -9,7 +9,11 @@
   <br> Description: <%= listing.description %>
   <br> Available: <%= listing.available_date %>
   <br> Price: <%= listing.price %>
-  <br> Available: <%= listing.available %>
+  <% if listing.available == 't' %>
+    <br> Available: Yes
+  <% else %>
+    <br> Available: No
+  <% end %>
   <br>
 <% end %>
   <br>
@@ -17,4 +21,4 @@
 <br> You are signed in as: <%= @user.name %>
 <form action="sessions/destroy" method="post">
   <input type="submit" value="Sign out" >
-  </form >
+</form >
