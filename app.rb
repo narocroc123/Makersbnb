@@ -1,5 +1,4 @@
 require 'sinatra/base'
-
 require './lib/Listing'
 require 'sinatra/flash'
 require './lib/user'
@@ -9,7 +8,18 @@ class MakersBnB < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+  get '/' do
+    erb :'users/user_sign_up'
+  end
+
+  post '/users-add' do
+    user = User.create(name: params[:name], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect '/listings'
+  end
+
   get '/listings' do
+    @user = User.find(session[:user_id])
     @listings = Listings.all
     erb :'listings/listings'
   end
@@ -32,20 +42,12 @@ class MakersBnB < Sinatra::Base
   post '/listings' do
     Listings.create(property_name: params[:property_name], description: params[:description], available_date: params[:available_date], price: params[:price], available: params[:available])
     redirect '/listings'
-  get '/' do
-    erb :'users/user_sign_up'
   end
 
-  post '/users-add' do
-    user = User.create(name: params[:name], email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/test-properties'
-  end
-
-  get '/test-properties' do
-    @user = User.find(session[:user_id])
-    erb :'/users/welcome_page'
-  end
+  # get '/test-properties' do
+  #   @user = User.find(session[:user_id])
+  #   erb :'/users/welcome_page'
+  # end
 
   get '/sessions/new' do
     erb :'/users/user_sign_in'
@@ -55,7 +57,7 @@ class MakersBnB < Sinatra::Base
     user = User.authenticate( email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.id
-      redirect '/test-properties'
+      redirect '/listings'
     else
       flash[:notice] = 'Please check your email or password.'
       redirect '/sessions/new'

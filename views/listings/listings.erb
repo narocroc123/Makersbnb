@@ -1,4 +1,5 @@
 <h1>Listings</h1>
+
 <form action='listings/new'>
   <input type='submit' value='New Listing'>
 </form>
@@ -11,3 +12,9 @@
   <br> Available: <%= listing.available %>
   <br>
 <% end %>
+  <br>
+  <br>
+<br> You are signed in as: <%= @user.name %>
+<form action="sessions/destroy" method="post">
+  <input type="submit" value="Sign out" >
+  </form >
