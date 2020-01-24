@@ -2,9 +2,19 @@
 <br> Description: <%= @listing.description %>
 <br> Available: <%= @listing.available_date %>
 <br> Price: <%= @listing.price %>
-<br> Available: <%= @listing.available %>
+<% if @listing.available == 't' %>
+  <br> Available: Yes
+<% else %>
+  <br> Available: No
+<% end %>
 <br> Listed by: <%= @user.name %>
 
-<form action='/confirmation' method='get'>
-  <input type='submit' value='Book Property'/>
+<% if @listing.available == 't' %>
+  <form action="<%= @listing.id %>/confirmation" method='get'>
+    <input type='submit' value='Book Property'/>
+  </form>
+<% end %>
+
+<form action='/listings' method='get'>
+  <input type='submit' value='Return to Listings'/>
 </form>
