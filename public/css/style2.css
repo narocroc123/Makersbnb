@@ -7,18 +7,45 @@ body {
     background-color: #FFFFFF;
     width: 400px;
     height: 400px;
+    margin: 20em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.main2 {
+    background-color: #FFFFFF;
+    width: 800px;
+    height: 800px;
     margin: 7em auto;
     border-radius: 1.5em;
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
 
+.main3 {
+    background-color: #FFFFFF;
+    width: 400px;
+    height: 400px;
+    margin: 7em auto;
+    margin-top: 200px;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
 .sign {
-    padding-top: 40px;
+    padding-top: 30px;
+    color: #09C6AB;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+    padding-bottom: 20px;
+}
+.sign2 {
     color: #09C6AB;
     font-family: 'Ubuntu', sans-serif;
     font-weight: bold;
     font-size: 23px;
 }
+
 
 .un {
 width: 76%;
@@ -38,6 +65,49 @@ margin-left: 46px;
 text-align: center;
 margin-bottom: 27px;
 font-family: 'Ubuntu', sans-serif;
+}
+
+
+.form-control2 {
+box-shadow: none;
+background: transparent;
+border: 2px solid rgba(0, 0, 0, 0.1);
+height: 46px;
+font-size: 16px;
+font-weight: 300;
+margin-left: 50px;
+margin-bottom: 27px;
+padding: 10px 250px;
+/* padding-left: 350px;
+padding-right: 1005px; */
+border-radius: 1.5em;
+}
+
+.form-control2:active, .form-control2:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #09C6AB;
+}
+
+.form-control3 {
+    box-shadow: none;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    height: 200px;
+    font-size: 16px;
+    font-weight: 300;
+    margin-left: 50px;
+    margin-bottom: 27px;
+    /* padding: 250px, 250px; */
+    padding-left: 450px;
+    /* padding-right: 1005px; */
+    border-radius: 1.5em;
+    }
+    
+.form-control3:active, .form-control3:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #09C6AB;
 }
 
 form.form1 {
@@ -71,7 +141,7 @@ font-family: 'Ubuntu', sans-serif;
 }
 
 .submit {
-    cursor: pointer;
+  cursor: pointer;
     border-radius: 5em;
     color: #fff;
     background: linear-gradient(to right, #09C6AB, rgb(61, 194, 128));

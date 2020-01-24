@@ -445,6 +445,16 @@ h1, h2, h3, h4, h5, h6, figure {
   float: left;
   width: 100%;
 }
+
+.gtco-cover2 {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
 .gtco-cover a {
   color: #09C6AB;
 }
@@ -866,7 +876,7 @@ form label {
 }
 
 .gtco-heading {
-  margin-bottom: 5em;
+  margin-bottom: 2em;
 }
 .gtco-heading.gtco-heading-sm {
   margin-bottom: 2em;
