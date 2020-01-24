@@ -1,0 +1,20 @@
+<h1>Listings</h1>
+
+<form action='listings/new'>
+  <input type='submit' value='New Listing'>
+</form>
+
+<% @listings.each do |listing| %>
+  <br><a href="listings/<%= listing.id %>"><b><%= listing.property_name %></b></a>
+  <br> Description: <%= listing.description %>
+  <br> Available: <%= listing.available_date %>
+  <br> Price: <%= listing.price %>
+  <br> Available: <%= listing.available %>
+  <br>
+<% end %>
+  <br>
+  <br>
+<br> You are signed in as: <%= @user.name %>
+<form action="sessions/destroy" method="post">
+  <input type="submit" value="Sign out" >
+  </form >
