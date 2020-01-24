@@ -24,13 +24,19 @@ class MakersBnB < Sinatra::Base
     if @user
       erb :'listings/listings'
     else
-      flash[:notice] = 'You must be signed in to see the listings.'
-      redirect '/sessions/new'
+      flash[:notice] = 'You must be signed in to see or post listings.'
+      redirect '/'
     end
   end
 
   get '/listings/new' do
-    erb :'listings/new_listing'
+    @user = User.find(session[:user_id])
+    if @user
+      erb :'listings/new_listing'
+    else
+      flash[:notice] = 'You must be signed in to see or post a listings.'
+      redirect '/'
+    end
   end
 
   get '/listings/:id' do
@@ -77,7 +83,6 @@ class MakersBnB < Sinatra::Base
     flash[:notice] = 'You have signed out'
     redirect '/'
   end
-
 
   run! if app_file == $0
 end
