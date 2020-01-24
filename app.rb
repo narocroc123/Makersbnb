@@ -29,8 +29,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/listings/:id' do
-    @id = params[:id]
-    @listing = Listings.select(id: @id)
+    @listing = Listings.select(id: params[:id])
     erb :'listings/property_page'
   end
 
