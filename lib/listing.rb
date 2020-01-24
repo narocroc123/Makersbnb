@@ -23,4 +23,9 @@ class Listings
     result = DatabaseConnection.query("SELECT * FROM property WHERE id=#{id};")
     Listings.new(id: result[0]['id'], property_name: result[0]['property_name'], description: result[0]['description'], available_date: result[0]['available_date'], price: result[0]['price'], available: result[0]['available'])
   end
+
+  def self.booked(id:)
+    result = DatabaseConnection.query("UPDATE property SET available = 'FALSE' WHERE id = #{id}; ")
+  end 
+
 end
